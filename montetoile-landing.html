@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="theme-color" content="#F7F5F2">
+<title>MONT ÉTOILE · Natural Mineral Water</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ──────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --stone:#F7F5F2;
+  --stone-2:#EDEAE5;
+  --stone-3:#D8D4CE;
+  --charcoal:#1E1C1A;
+  --charcoal-mid:#3A3835;
+  --red:#9B2335;
+  --red-l:#B8374A;
+  --red-dim:rgba(155,35,53,.12);
+  --white:#FFFFFF;
+  --muted:rgba(30,28,26,.45);
+  --faint:rgba(30,28,26,.15)
+}
+html{scroll-behavior:smooth}
+body{background:var(--stone);color:var(--charcoal);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ── GRAIN OVERLAY ─────────────────────── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size:200px 200px
+}
+
+/* ── HERO / VIDEO ──────────────────────── */
+.hero{position:relative;height:100svh;min-height:580px;overflow:hidden;background:var(--charcoal);display:flex;flex-direction:column;justify-content:flex-end}
+.video-wrap{position:absolute;inset:0;overflow:hidden}
+.video-wrap iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;pointer-events:none}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(30,28,26,.25) 0%,rgba(30,28,26,.1) 40%,rgba(30,28,26,.7) 80%,rgba(30,28,26,.88) 100%)}
+.hero-content{position:relative;z-index:2;padding:2.5rem 2rem 3rem;text-align:center}
+.hero-eyebrow{font-size:.6rem;letter-spacing:.55em;text-transform:uppercase;color:rgba(247,245,242,.55);margin-bottom:1.25rem;animation:fadeup .8s .2s both}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,12vw,5rem);font-weight:300;color:var(--white);letter-spacing:.12em;line-height:1;animation:fadeup .8s .35s both}
+.hero-name span{display:block;font-style:italic;font-size:.45em;color:rgba(247,245,242,.7);letter-spacing:.2em;margin-top:.35em}
+.hero-rule{width:1px;height:50px;background:linear-gradient(to bottom,transparent,rgba(155,35,53,.7),transparent);margin:1.5rem auto;animation:fadeup .8s .5s both}
+.hero-sub{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(247,245,242,.6);animation:fadeup .8s .6s both}
+
+/* play overlay */
+.play-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;opacity:0;animation:fadein 1.5s 1s forwards}
+.play-circle{width:56px;height:56px;border-radius:50%;border:1px solid rgba(247,245,242,.35);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);background:rgba(247,245,242,.08)}
+.play-circle svg{width:16px;height:16px;fill:rgba(247,245,242,.8);margin-left:3px}
+
+@keyframes fadeup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadein{from{opacity:0}to{opacity:.5}}
+
+/* ── INTRO STRIP ───────────────────────── */
+.strip{background:var(--white);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:center;gap:2rem;border-bottom:1px solid var(--faint)}
+.strip-item{text-align:center}
+.strip-v{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--charcoal);line-height:1}
+.strip-l{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.strip-div{width:1px;height:32px;background:var(--faint)}
+
+/* ── GENERIC SECTION ───────────────────── */
+.sec{padding:4.5rem 2rem}
+.sec-label{font-size:.6rem;letter-spacing:.45em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+.sec-label::before{content:'';display:block;width:20px;height:1px;background:var(--red)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.6rem);font-weight:300;line-height:1.2;color:var(--charcoal);margin-bottom:1.5rem}
+.sec-body{font-size:.88rem;color:var(--muted);line-height:1.95;max-width:520px}
+
+/* ── SOI DAO ───────────────────────────── */
+.soidao{background:var(--white)}
+.soidao-inner{max-width:600px;margin:0 auto}
+.soidao-map{
+  margin:2.5rem 0;height:160px;
+  background:linear-gradient(135deg,var(--stone) 0%,var(--stone-2) 50%,var(--stone-3) 100%);
+  border:1px solid var(--faint);border-radius:2px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;position:relative;overflow:hidden
+}
+.soidao-map::before{
+  content:'';position:absolute;inset:0;opacity:.15;
+  background:repeating-linear-gradient(0deg,transparent,transparent 39px,var(--faint) 40px),
+             repeating-linear-gradient(90deg,transparent,transparent 39px,var(--faint) 40px)
+}
+.map-pin{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px var(--red-dim),0 0 0 8px var(--red-dim);animation:ping 2s ease-in-out infinite;position:relative;z-index:1}
+@keyframes ping{0%,100%{box-shadow:0 0 0 4px var(--red-dim),0 0 0 8px var(--red-dim)}50%{box-shadow:0 0 0 6px var(--red-dim),0 0 0 14px transparent}}
+.map-label{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--charcoal);position:relative;z-index:1}
+.map-sub{font-size:.65rem;letter-spacing:.2em;color:var(--muted);position:relative;z-index:1}
+.soidao-quote{
+  border-left:2px solid var(--red);padding:1rem 1.25rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;
+  color:var(--charcoal-mid);line-height:1.7;margin:2rem 0
+}
+
+/* ── MINERALS ──────────────────────────── */
+.minerals-sec{background:var(--charcoal);color:var(--stone)}
+.minerals-sec .sec-label{color:rgba(155,35,53,.8)}
+.minerals-sec .sec-label::before{background:rgba(155,35,53,.8)}
+.minerals-sec .sec-title{color:var(--white)}
+.minerals-sec .sec-body{color:rgba(247,245,242,.45)}
+.minerals-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(247,245,242,.08);border:1px solid rgba(247,245,242,.08);margin-top:2.5rem}
+.mineral-item{
+  background:var(--charcoal);padding:1.25rem 1rem;
+  transition:background .2s
+}
+.mineral-item:hover{background:#252320}
+.m-en{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(155,35,53,.7);margin-bottom:.3rem}
+.m-th{font-size:.92rem;color:var(--stone);font-weight:400}
+.m-desc{font-size:.72rem;color:rgba(247,245,242,.3);margin-top:.2rem;line-height:1.5}
+
+/* ── NATURAL ───────────────────────────── */
+.natural-sec{background:var(--stone-2)}
+.natural-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.chip{
+  border:1px solid var(--stone-3);background:var(--white);
+  padding:.45rem .9rem;border-radius:1px;
+  font-size:.72rem;letter-spacing:.12em;color:var(--charcoal-mid);
+  display:flex;align-items:center;gap:.5rem
+}
+.chip-dot{width:5px;height:5px;border-radius:50%;background:var(--red)}
+
+/* ── AWARD ─────────────────────────────── */
+.award-sec{background:var(--white)}
+.award-card{
+  margin-top:2.5rem;
+  border:1px solid var(--faint);padding:2rem 1.5rem;
+  display:flex;gap:1.5rem;align-items:flex-start
+}
+.award-medal{
+  flex-shrink:0;width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,#BF8E3A,#D4AA60,#BF8E3A);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem
+}
+.award-org{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
+.award-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--charcoal);margin-bottom:.4rem}
+.award-body{font-size:.78rem;color:var(--muted);line-height:1.7}
+
+/* ── PARTNERS ──────────────────────────── */
+.partners-sec{background:var(--stone)}
+.partner-list{margin-top:2rem;border-top:1px solid var(--faint)}
+.partner-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 0;border-bottom:1px solid var(--faint);
+}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--charcoal)}
+.p-type{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.p-dot{width:5px;height:5px;border-radius:50%;background:var(--red);flex-shrink:0}
+
+/* ── FOOTER ────────────────────────────── */
+footer{background:var(--charcoal);color:var(--stone);padding:3rem 2rem;text-align:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;letter-spacing:.2em;color:var(--white);margin-bottom:.5rem}
+.footer-tag{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(247,245,242,.3);margin-bottom:2rem}
+.footer-rule{width:40px;height:1px;background:rgba(155,35,53,.5);margin:1.5rem auto}
+footer p{font-size:.72rem;color:rgba(247,245,242,.35);line-height:1.9}
+
+/* ── SCROLL REVEAL ─────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/q-41Hb3w_Ms?autoplay=1&mute=1&loop=1&playlist=q-41Hb3w_Ms&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+      title="MONT ÉTOILE · Soi Dao Source"
+      frameborder="0"
+      allow="autoplay;encrypted-media"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+  <div class="hero-veil"></div>
+  <div class="play-hint"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">จันทบุรี · ประเทศไทย</p>
+    <h1 class="hero-name">MONT ÉTOILE<span>Natural Mineral Water</span></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">100% Pure · Unprocessed · From Source to Table</p>
+  </div>
+</section>
+
+<!-- ── STRIP ── -->
+<div class="strip">
+  <div class="strip-item">
+    <div class="strip-v" style="font-size:1.1rem;letter-spacing:.05em">100%</div>
+    <div class="strip-l">Natural</div>
+  </div>
+  <div class="strip-div"></div>
+  <div class="strip-item">
+    <div class="strip-v">8</div>
+    <div class="strip-l">Minerals</div>
+  </div>
+  <div class="strip-div"></div>
+  <div class="strip-item">
+    <div class="strip-v" style="font-size:1.1rem">pH 7.8</div>
+    <div class="strip-l">Balanced</div>
+  </div>
+  <div class="strip-div"></div>
+  <div class="strip-item">
+    <div class="strip-v" style="font-size:1rem">★ Gold</div>
+    <div class="strip-l">Monde Selection</div>
+  </div>
+</div>
+
+<!-- ── SOI DAO ── -->
+<section class="sec soidao">
+  <div class="soidao-inner">
+    <div class="reveal">
+      <p class="sec-label">แหล่งกำเนิด · Origin</p>
+      <h2 class="sec-title">เกิดจากสายหมอก<br>แห่งเทือกเขาสอยดาว</h2>
+    </div>
+    <div class="soidao-map reveal">
+      <div class="map-pin"></div>
+      <div class="map-label">เทือกเขาสอยดาว</div>
+      <div class="map-sub">Soi Dao Mountains · Chanthaburi · 12°N 102°E</div>
+    </div>
+    <div class="soidao-quote reveal">
+      "น้ำแร่จากชั้นหินลึกใต้ผืนป่า ผ่านการกรองตามธรรมชาติหลายร้อยปี ก่อนผุดขึ้นสู่ผิวดินด้วยแรงดันบริสุทธิ์"
+    </div>
+    <p class="sec-body reveal">
+      เทือกเขาสอยดาวในจังหวัดจันทบุรีเป็นพื้นที่ป่าต้นน้ำที่อุดมสมบูรณ์ที่สุดแห่งหนึ่งของประเทศไทย 
+      น้ำฝนซึมผ่านชั้นหิน สะสมแร่ธาตุตามธรรมชาติ 8 ชนิด 
+      และผุดขึ้นเป็น MONT ÉTOILE — น้ำแร่ที่ไม่ผ่านกระบวนการปรุงแต่งใดๆ
+    </p>
+  </div>
+</section>
+
+<!-- ── MINERALS ── -->
+<section class="sec minerals-sec">
+  <div class="reveal">
+    <p class="sec-label">แร่ธาตุ · Mineral Composition</p>
+    <h2 class="sec-title" style="color:var(--white)">สมดุลจากธรรมชาติ<br>8 แร่ธาตุสำคัญ</h2>
+    <p class="sec-body">ทุกแร่ธาตุมาจากชั้นหินตามธรรมชาติ ไม่มีการเติมแต่งใดๆ ทั้งสิ้น</p>
+  </div>
+  <div class="minerals-grid reveal">
+    <div class="mineral-item">
+      <div class="m-en">Bicarbonate</div>
+      <div class="m-th">ไบคาร์บอเนต</div>
+      <div class="m-desc">ช่วยปรับสมดุล pH</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Silica</div>
+      <div class="m-th">ซิลิก้า</div>
+      <div class="m-desc">บำรุงผิวและผม</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Calcium</div>
+      <div class="m-th">แคลเซียม</div>
+      <div class="m-desc">เสริมความแข็งแรงของกระดูก</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Potassium</div>
+      <div class="m-th">โพแทสเซียม</div>
+      <div class="m-desc">สมดุลระบบไหลเวียน</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Sulfate</div>
+      <div class="m-th">ซัลเฟต</div>
+      <div class="m-desc">ช่วยการย่อยอาหาร</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Chloride</div>
+      <div class="m-th">คลอไรด์</div>
+      <div class="m-desc">ระบบอิเล็กโทรไลต์</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Magnesium</div>
+      <div class="m-th">แมกนีเซียม</div>
+      <div class="m-desc">ลดความล้า เสริมกล้ามเนื้อ</div>
+    </div>
+    <div class="mineral-item">
+      <div class="m-en">Sodium</div>
+      <div class="m-th">โซเดียม</div>
+      <div class="m-desc">ในระดับต่ำที่เหมาะสม</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NATURAL ── -->
+<section class="sec natural-sec">
+  <div class="reveal">
+    <p class="sec-label">มาตรฐาน · Our Promise</p>
+    <h2 class="sec-title">100% Natural<br>Mineral Water</h2>
+    <p class="sec-body">
+      MONT ÉTOILE คือน้ำแร่ธรรมชาติแท้จาก Source ถึงโต๊ะอาหาร 
+      ไม่ผ่านกระบวนการปรุงแต่ง ไม่เติมแร่ธาตุ ไม่ผ่านการ Demineralise 
+      ตรงตามมาตรฐาน อย. ปสธ.464 ทุกประการ
+    </p>
+  </div>
+  <div class="natural-chips reveal">
+    <div class="chip"><span class="chip-dot"></span>ไม่เติมแร่ธาตุเทียม</div>
+    <div class="chip"><span class="chip-dot"></span>ไม่ผ่านการ Demineralise</div>
+    <div class="chip"><span class="chip-dot"></span>ไม่ใช้สารกรองเคมี</div>
+    <div class="chip"><span class="chip-dot"></span>Source Protection Zone</div>
+    <div class="chip"><span class="chip-dot"></span>Cold-fill Process</div>
+    <div class="chip"><span class="chip-dot"></span>HACCP Certified</div>
+  </div>
+</section>
+
+<!-- ── AWARD ── -->
+<section class="sec award-sec">
+  <div class="reveal">
+    <p class="sec-label">รางวัล · Recognition</p>
+    <h2 class="sec-title">รับรองโดยสถาบัน<br>คุณภาพนานาชาติ</h2>
+  </div>
+  <div class="award-card reveal">
+    <div class="award-medal">★</div>
+    <div>
+      <div class="award-org">Monde Selection · Brussels, Belgium</div>
+      <div class="award-name">Grand Gold Medal 2025</div>
+      <div class="award-body">
+        Monde Selection เป็นสถาบันรับรองคุณภาพผลิตภัณฑ์ระดับโลกที่เก่าแก่ที่สุดแห่งหนึ่ง 
+        ก่อตั้งมาตั้งแต่ปี 1961 MONT ÉTOILE ได้รับ Grand Gold Medal 
+        อันเป็นรางวัลสูงสุดด้านคุณภาพ รสชาติ และความบริสุทธิ์
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section class="sec partners-sec">
+  <div class="reveal">
+    <p class="sec-label">เลือกใช้โดย · Served At</p>
+    <h2 class="sec-title">ร้านอาหาร โรงแรม<br>และสายการบินชั้นนำ</h2>
+    <p class="sec-body">MONT ÉTOILE เป็นตัวเลือกของสถานที่ Fine Dining และ Luxury Hospitality ชั้นนำในประเทศไทย</p>
+  </div>
+  <div class="partner-list reveal">
+    <div class="partner-item">
+      <div><div class="p-name">The Water Library</div><div class="p-type">Fine Dining · Bangkok</div></div>
+      <div class="p-dot"></div>
+    </div>
+    <div class="partner-item">
+      <div><div class="p-name">Royal Osha</div><div class="p-type">Thai Fine Dining · Bangkok</div></div>
+      <div class="p-dot"></div>
+    </div>
+    <div class="partner-item">
+      <div><div class="p-name">Brasserie 9</div><div class="p-type">French Brasserie · Bangkok</div></div>
+      <div class="p-dot"></div>
+    </div>
+    <div class="partner-item">
+      <div><div class="p-name">การบินไทย</div><div class="p-type">Thai Airways · In-Flight Service</div></div>
+      <div class="p-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">MONT ÉTOILE</div>
+  <div class="footer-tag">Natural Mineral Water · Since Chanthaburi</div>
+  <div class="footer-rule"></div>
+  <p>บริษัท มองต์ เอทัวล์ จำกัด<br>
+  อำเภอโป่งน้ำร้อน จังหวัดจันทบุรี ประเทศไทย<br>
+  <span style="letter-spacing:.08em">www.montetoil.com</span></p>
+  <p style="margin-top:1.5rem;font-size:.6rem;opacity:.25">© 2025 Mont Etoile Co., Ltd. · All rights reserved</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}
+  })
+},{threshold:.12})
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))
+</script>
+</body>
+</html>
